@@ -1,0 +1,8 @@
+logging:
+  level:
+    org:
+      springframework: debug
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: 'false'
