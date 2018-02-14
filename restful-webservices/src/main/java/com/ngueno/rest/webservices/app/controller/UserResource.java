@@ -1,11 +1,16 @@
 package com.ngueno.rest.webservices.app.controller;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 import java.net.URI;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +35,14 @@ public class UserResource {
 	}
 
 	@GetMapping("/users/{id}")
-	public User retrieveUser(@PathVariable Long id) {
-		return userService.find(id);
+	public Resource<User> retrieveUser(@PathVariable Long id) {
+		User user = userService.find(id);
+
+		ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+		Resource<User> resource = new Resource<User>(user);
+		resource.add(linkTo.withRel("all-users"));
+
+		return resource;
 	}
 
 	@PostMapping("/users")
