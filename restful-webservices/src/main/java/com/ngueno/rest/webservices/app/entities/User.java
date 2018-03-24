@@ -1,22 +1,25 @@
 package com.ngueno.rest.webservices.app.entities;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description="Details about the user")
 public class User {
 
 	private Long id;
 
 	@Past
+	@ApiModelProperty(notes = "Birth date should in the past")
 	private Date birtDate;
 
 	@Size(min = 2, message = "Name should have at least 2 characters")
+	@ApiModelProperty(notes = "Name should have at least 2 characters")
 	private String name;
-
-	private List<Post> posts;
 
 	public User() {
 
@@ -51,13 +54,5 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<Post> getPosts() {
-		return posts;
-	}
-
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
 	}
 }
