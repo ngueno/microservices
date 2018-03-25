@@ -6,6 +6,10 @@ spring:
   jackson:
     serialization:
       write-dates-as-timestamps: 'false'
+  security:
+    user:
+      name: username
+      password: password
 management:
   endpoints:
     web:
