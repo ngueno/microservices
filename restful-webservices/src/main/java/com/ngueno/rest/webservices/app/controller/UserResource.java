@@ -57,7 +57,7 @@ public class UserResource {
 
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(@PathVariable Long id) {
-		userService.delete(id);
+		userService.delete(new User(id));
 	}
 
 }
