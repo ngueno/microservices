@@ -5,11 +5,16 @@ logging:
 spring:
   jackson:
     serialization:
-      write-dates-as-timestamps: 'false'
+      write-dates-as-timestamps: false
   security:
     user:
       name: username
       password: password
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
 management:
   endpoints:
     web:
