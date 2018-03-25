@@ -9,20 +9,17 @@ import org.springframework.stereotype.Service;
 import com.ngueno.rest.webservices.app.entities.User;
 import com.ngueno.rest.webservices.app.exception.UserNotFoundException;
 import com.ngueno.rest.webservices.app.repository.UserRepository;
-import com.ngueno.rest.webservices.app.service.iface.IUserService;
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
 
-	@Override
 	public List<User> findAll() {
 		return userRepository.findAll();
 	}
 
-	@Override
 	public User find(Long id) {
 		Optional<User> foundUser = userRepository.findById(id);
 
@@ -33,14 +30,12 @@ public class UserServiceImpl implements IUserService {
 		return foundUser.get();
 	}
 
-	@Override
 	public User save(User user) {
 		return userRepository.save(user);
 	}
 
-	@Override
-	public void delete(User user) {
-		userRepository.delete(user);
+	public void delete(Long id) {
+		userRepository.deleteById(id);
 	}
 
 }

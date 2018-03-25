@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ngueno.rest.webservices.app.entities.User;
-import com.ngueno.rest.webservices.app.service.iface.IUserService;
+import com.ngueno.rest.webservices.app.service.UserService;
 
 @RestController
 public class UserResource {
 
 	@Autowired
-	private IUserService userService;
+	private UserService userService;
 
 	@GetMapping("/users")
 	public List<User> retrieveAllUsers() {
@@ -57,7 +57,7 @@ public class UserResource {
 
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(@PathVariable Long id) {
-		userService.delete(new User(id));
+		userService.delete(id);
 	}
 
 }
