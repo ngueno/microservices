@@ -1,0 +1,30 @@
+* Richardson Maturity Model
+
+	1) Level 1 - Exposing SOAP Services in REST style
+	2) Level 2 - Start to think about resources, but using the wrong HTTP methods
+	3) Level 3 - Use the correct HTTP methods, and apply HATEOS (next actions) to your resources
+
+* Best practices
+
+	1) Think about the consumer
+		- Simple names help your customer to find the appropriate resource to use
+		- Provide a rich documentation about what your services do, and how to use then properly
+	2) Make the best use of the HTTP Methods
+		- Use the correct methods (DELETE, PUT, POST, GET...)
+	3) Send the properly response status to your customer
+		- Do not send just 200 (Success) to every operation, send 201 (Created) for example
+			- Unauthorized, server error, resource not found, bad request...
+	4) Think about what you are going to put in your resource
+		- Pay attention to not use any kind of sensitive information in the URIs 
+	5) Use plurals
+		- Prefer /users to /user
+			- /users/1 to /user/1
+	6) Use nous for resources
+		- Use /users instead of /deleteUsers
+		* There are some exceptions of course :) The best way is to sit and define a consistent approach to move on with
+			- You can use like /users/search
+			- PUT /gists/{id}/star
+			- DELETE /gists/{id}/star
+			
+
+			

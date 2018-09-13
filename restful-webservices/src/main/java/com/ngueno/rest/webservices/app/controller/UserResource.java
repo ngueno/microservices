@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.ngueno.rest.webservices.app.entities.Post;
 import com.ngueno.rest.webservices.app.entities.User;
 import com.ngueno.rest.webservices.app.service.UserService;
 
@@ -60,4 +61,18 @@ public class UserResource {
 		userService.delete(id);
 	}
 
+	@GetMapping("/users/{id}/posts")
+	public List<Post> retrieveAllPosts(@PathVariable Long id) {
+		return userService.retrieveAllPosts(id);
+	}
+	
+	@PostMapping("/users/{id}/posts")
+	public ResponseEntity<Object> createPost(@PathVariable Long id, @RequestBody Post post) {
+		Post savedPost = userService.createPost(id, post);
+
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedPost.getId())
+				.toUri();
+
+		return ResponseEntity.created(location).build();
+	}
 }

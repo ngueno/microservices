@@ -1,23 +1,32 @@
 {
-	"variables": [],
 	"info": {
+		"_postman_id": "c93a418d-046b-48c6-b7e0-e0960dd76801",
 		"name": "microservices",
-		"_postman_id": "01524072-62f7-f264-86ad-3e79e21d1c15",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "users",
-			"description": "",
+			"description": null,
 			"item": [
 				{
 					"name": "Retrieve all users",
 					"request": {
-						"url": "{{host}}/users",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						},
 						"description": "Retrieve all users"
 					},
 					"response": []
@@ -25,18 +34,25 @@
 				{
 					"name": "Create user",
 					"request": {
-						"url": "{{host}}/users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"birtDate\": \"2018-02-13T14:49:18.453+0000\",\n        \"name\": \"s\"\n    }"
+						},
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
 						},
 						"description": "Create users"
 					},
@@ -45,18 +61,25 @@
 				{
 					"name": "Create user xml",
 					"request": {
-						"url": "{{host}}/users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/xml",
-								"description": ""
+								"value": "application/xml"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"birtDate\": \"2018-02-13T14:49:18.453+0000\",\n        \"name\": \"s\"\n    }"
+						},
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
 						},
 						"description": "Create users"
 					},
@@ -65,11 +88,22 @@
 				{
 					"name": "Find user",
 					"request": {
-						"url": "{{host}}/users/1",
 						"method": "GET",
 						"header": [],
-						"body": {},
-						"description": ""
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}
@@ -77,60 +111,563 @@
 		},
 		{
 			"name": "examples",
-			"description": "",
+			"description": null,
 			"item": [
 				{
-					"name": "Hello World Internationalized",
+					"name": "Filtering",
 					"request": {
-						"url": "{{host}}/hello-world-internationalized",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/filtering",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"filtering"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtering List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/filtering-list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"filtering-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtering Other",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/filtering-other",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"filtering-other"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtering Other List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/filtering-other-list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"filtering-other-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtering Dynamically",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/dynamic-filtering",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"dynamic-filtering"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtering Dynamically List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/dynamic-list-filtering",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"dynamic-list-filtering"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Versioning Person v1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/person",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Versioning Person v2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v2/person",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v2",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Versioning Param v1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/person/param?version=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person",
+								"param"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Versioning Param v2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/person/param?version=2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person",
+								"param"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Versioning Header v1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-VERSION",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/person/header",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person",
+								"header"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Versioning Header v2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-VERSION",
+								"value": "2"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/person/header",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person",
+								"header"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Versioning Produces v1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-VERSION",
+								"value": "2"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/person/produces",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person",
+								"produces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Versioning Produces v2",
+					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Accept-Language",
 								"value": "fr",
-								"description": ""
+								"disabled": true
 							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
-								"description": ""
+								"disabled": true
+							},
+							{
+								"key": "X-API-VERSION",
+								"value": "2",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.company.app-v2+json"
 							}
 						],
-						"body": {},
-						"description": ""
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/person/produces",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person",
+								"produces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hello World Internationalized",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/hello-world-internationalized",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"hello-world-internationalized"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Hello World",
 					"request": {
-						"url": "{{host}}/hello-world",
 						"method": "GET",
 						"header": [],
-						"body": {},
-						"description": ""
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/hello-world",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Hello World Bean",
 					"request": {
-						"url": "{{host}}/hello-world-bean",
 						"method": "GET",
 						"header": [],
-						"body": {},
-						"description": ""
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/hello-world-bean",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"hello-world-bean"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Hello World Path Parameter",
 					"request": {
-						"url": "{{host}}/hello-world/path-variable/Norton",
 						"method": "GET",
 						"header": [],
-						"body": {},
-						"description": ""
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/hello-world/path-variable/Norton",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"hello-world",
+								"path-variable",
+								"Norton"
+							]
+						}
 					},
 					"response": []
 				}
