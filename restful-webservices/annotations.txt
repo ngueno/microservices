@@ -1,3 +1,9 @@
+* Microservices
+	
+	1) REST
+	2) Small well chosen deployable units
+	3) Cloud enabled
+
 * Richardson Maturity Model
 
 	1) Level 1 - Exposing SOAP Services in REST style
@@ -26,5 +32,49 @@
 			- PUT /gists/{id}/star
 			- DELETE /gists/{id}/star
 			
+* Challenges
 
-			
+	1) Identify the boundaries of each microservice
+		- What you should do, and what you shouldn't in each microservice
+	2) Configuration Management
+		- In a cloud environment, we could have 50, 100 instances of each microservices
+		- Load distribution
+			- Spring Cloud Configuration
+	3) Dynamic scale up and scale down
+		- Choose the properly technology to provide this feature
+			- Naming Server (Eureka)
+			- Ribbon (Client side load balancing)
+			- Feign (Easier REST Clients)
+	4) Visibility
+		- Centralized log, monitoring around all microservices, automated processes to identify possible issues
+			- Zipkin Distributed Tracing
+			- Netflix Zuel API Gateway
+	5) Pack of cards
+		- If not well designed, your application will colapse very easily
+		- Implementation of fault tolerance
+			- Hystrix
+
+* Advantages
+
+	1) New technology and process adaption
+		- Apps are a combination of microservices, all those microservices could be built in different languages
+	2) Dynamic scaling
+		- Scaling dynamically during the seasons of the year (Black Friday, vacation...)
+	3) Faster Release Cycles
+		- Bring features faster to Market
+		
+* Standardization
+
+	- Important to standardize the ports and communication channels of the applications:
+	- Ensure to be using the correct port
+	- Standard URLs
+	- Standard Environments
+	
+	Application                         Port
+		Limits Service                      8080, 8081, ...
+		Spring Cloud Config Server          8888
+		Currency Exchange Service           8000, 8001, 8002, ..
+		Currency Conversion Service         8100, 8101, 8102, ...
+		Netflix Eureka Naming Server        8761
+		Netflix Zuul API Gateway Server     8765
+		Zipkin Distributed Tracing Server	9411
