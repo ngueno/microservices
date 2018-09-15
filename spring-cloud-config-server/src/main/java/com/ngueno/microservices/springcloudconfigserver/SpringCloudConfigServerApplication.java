@@ -1,4 +1,4 @@
-package com.ngueno.microservices.limitsservice;
+package com.ngueno.microservices.springcloudconfigserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.ngueno" })
-public class LimitsServiceApplication {
+public class SpringCloudConfigServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LimitsServiceApplication.class, args);
+		SpringApplication.run(SpringCloudConfigServerApplication.class, args);
 	}
 }
