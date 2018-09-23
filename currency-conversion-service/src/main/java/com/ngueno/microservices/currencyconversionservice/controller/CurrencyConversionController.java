@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.ngueno.microservices.currencyconversionservice.bean.CurrencyConversionBean;
-import com.ngueno.microservices.currencyconversionservice.config.CurrencyExchangeServiceProxy;
+import com.ngueno.microservices.currencyconversionservice.proxy.CurrencyExchangeServiceProxy;
 
 @RestController
 public class CurrencyConversionController {
