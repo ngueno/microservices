@@ -2,9 +2,11 @@ package com.ngueno.microservices.currencyexchangeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 @ComponentScan(basePackages = { "com.ngueno.microservices" })
 public class CurrencyExchangeServiceApplication {
 
