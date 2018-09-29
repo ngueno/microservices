@@ -1,0 +1,5 @@
+Using Spring Cloud Bus to refresh all the up services configuration:
+
+	<project url>/actuator/bus-refresh *POST request
+	
+The configuration for this example is using RabbitMQ also, it is refreshing all the services related to the one you call refresher
