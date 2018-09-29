@@ -1,0 +1,8 @@
+	Over MQ:
+		Obviously have the MQ started (using RabbitMQ as example)
+		- SET RABBIT_URI=amqp://localhost
+	
+	Running Zipkin:
+		- java -jar zipkin.jar
+	
+Access on the localhost:9411/zipkin
